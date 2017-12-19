@@ -1,7 +1,7 @@
 package ie.gmit.sw;
 
 import java.rmi.Naming;
-import java.rmi.Remote;
+//import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
 
 // Adapted from Distributed Systems RMI File Server Lab

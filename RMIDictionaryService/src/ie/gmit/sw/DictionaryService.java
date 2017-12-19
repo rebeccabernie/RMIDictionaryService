@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // Adapted from Distributed Systems RMI File Server Lab, needs to be changed
 
-public interface DictionaryService extends Remote{
+public interface DictionaryService extends Remote {
 	
 	public ArrayList<String> loadDictionary() throws RemoteException;
 	
