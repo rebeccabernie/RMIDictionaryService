@@ -1,16 +1,17 @@
 package ie.gmit.sw;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+//import java.util.ArrayList;
 
 // Adapted from Distributed Systems RMI File Server Lab, needs to be changed
 
-public interface DictionaryService {
+public interface DictionaryService extends Remote{
 	
-	public byte[] getFile(String filename) throws RemoteException;
+	public ArrayList<String> loadDictionary() throws RemoteException;
 	
-	public ArrayList<String> getFileNames() throws RemoteException;
+	public String lookUp(String word) throws RemoteException;
 	
-	public void uploadFile(String fileName, byte[] bytes) throws RemoteException;
 
 }

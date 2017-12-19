@@ -1,9 +1,9 @@
 package ie.gmit.sw;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.util.ArrayList;
@@ -12,51 +12,34 @@ import java.util.ArrayList;
 
 public class DictionaryServiceImpl extends UnicastRemoteObject implements DictionaryService {
 	private static final long serialVersionUID = 1L;
+	
+	
+	private ArrayList<String> entryList = new ArrayList<String>(); // Store 100 words with definitions in ArrayList
+	private String result = "Word not found! Try another."; // Default to word not found
 
 	public DictionaryServiceImpl() throws RemoteException{
 		super();
 	}
-
-	@Override
-	public byte[] getFile(String fileName) throws RemoteException {
-		byte[] bytes = null;
-		ArrayList<String> fileNames = getFileNames();
-		if(fileNames.contains(fileName)) {			
-			try {
-				bytes = Files.readAllBytes(new File("serverFiles/"+fileName).toPath());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return bytes;
-
+	
+	public ArrayList<String> loadDictionary() throws RemoteException {
+		ArrayList<String> entryList = new ArrayList<String>(); // List of 100 words with definitions
+		
+		try(BufferedReader br = new BufferedReader(new FileReader("dictionary.txt"))) {
+			// Read the file line by line, add each line to the list of words/definitions
+			for(String line; (line = br.readLine()) != null; )
+		        entryList.add(line);
+		} catch (FileNotFoundException e) { e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
+		
+		return entryList;
 	}
-
+	
 	@Override
-	public ArrayList<String> getFileNames() throws RemoteException {
-		ArrayList<String> fileNames = new ArrayList<String>();
-		File folder = new File("serverFiles");
-		File[] listOfFiles = folder.listFiles();
-
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				fileNames.add(listOfFiles[i].getName());
-			} 
+	public String lookUp(String word) throws RemoteException {
+		for(String line: this.entryList) {
+			if (line.startsWith(word))
+				result = line;
 		}
-		return fileNames;
-	}
-
-	@Override
-	public void uploadFile(String fileName, byte[] bytes) throws RemoteException {
-		FileOutputStream stream = null;
-		try {
-			stream = new FileOutputStream("serverFiles/"+fileName);
-			stream.write(bytes);
-			stream.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-
-		}
-	}
+		return result; // returns either word + definition or word not found
+	} // end getDefinition
 
 }

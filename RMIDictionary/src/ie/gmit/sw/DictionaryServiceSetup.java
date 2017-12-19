@@ -18,7 +18,7 @@ public class DictionaryServiceSetup {
 		LocateRegistry.createRegistry(1099);
 
 		// Bind remote object to the registry with the name "dictionaryService"
-		Naming.rebind("dictionaryService", (Remote) ds); // Cast to Remote type
+		Naming.rebind("dictionaryService", ds); // Cast to Remote type
 
 		// Output message
 		System.out.println("Server ready.");
