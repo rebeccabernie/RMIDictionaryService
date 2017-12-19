@@ -15,6 +15,6 @@ Client requests in the inQueue should be periodically removed and processed (eve
 
 **Minimum Requirements**  
 1. A web client request should be placed in a message queue to await processing. Each request should be allocated a job number. The job number should be added to an inQueue (a Map) along with the request string. The servlet handler should return the job number to the client which in turn should poll the server every 10 seconds for a response. When a response is received with a completed task, the result of the dictionary lookup should be displayed in the browser.
-2. An interface called *DictionaryService* should expose a remote method with the following signature:
+2. An interface called *DictionaryService* should expose a remote method with the following signature:  
 `public String lookup(String s) throws RemoteException;`  
 where `s` is the string to lookup in the dictionary, and the String returned is either the dictionary definition of `s` or the text *"String not found"*. In the *DictionaryServiceImpl*, before looking up the query string in the dictionary the thread should be put to sleep for a time, i.e. `Thread.sleep(1000)`, to slow the service down and simulate a real asynchronous service.
