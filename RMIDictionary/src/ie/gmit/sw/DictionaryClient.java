@@ -3,7 +3,7 @@ package ie.gmit.sw;
 import java.rmi.Naming;
 import java.util.ArrayList;
 
-public class DictClient {
+public class DictionaryClient {
 
 	public static void main(String[] args) throws Exception {
 		//Ask the registry running on localhost and listening in port 1099 for the instance of
@@ -15,13 +15,11 @@ public class DictClient {
 
 		//print the list of file names on the server to the console
 		System.out.print("Dictionary Contents: ");
-		for(String s : entryList) {
-			System.out.println(s);
-		}
+		System.out.println(entryList);
 
 		// Make a remote invocation to the service to get the given word
 		String definition = ds.lookUp("abate"); // Testing with first word in file
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		System.out.println(definition);
 
 	}
