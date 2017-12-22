@@ -9,9 +9,10 @@
 <body>
 	<h2>Give me the definition for...</h2> 
 	<form action = "DictServlet" method = "POST">
-	   <input type = "text" name = "given_word">
+	   <input style="margin: 10px" type = "text" name = "given_word">
 	   <br />
-	   <input type = "submit" value = "Submit" />
+	   <br />
+	   <input style="margin: 10px" type = "submit" value = "Submit" />
 	</form>
 </body>
 </html>

@@ -13,6 +13,7 @@ public class DictionaryServiceSetup {
 		// Create an instance of a DictionaryServiceImpl
 		// DictionaryServiceImpl implements the DictionaryService interface, can be referred to as a DictionaryService type
 		DictionaryService ds = new DictionaryServiceImpl();
+		ds.loadDictionary();
 
 		// Start the RMI registry on port 1099
 		LocateRegistry.createRegistry(1099);

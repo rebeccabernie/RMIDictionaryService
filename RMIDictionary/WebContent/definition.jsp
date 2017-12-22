@@ -4,18 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Result</title>
+<title>RMI Dictionary</title>
 </head>
 <body> 
-	<h3 align = "center">Result</h3>
+	<h1>Result</h1>
 	<%
 		String query = (String) request.getAttribute("query");
 		String result = (String) request.getAttribute("result");
-		out.print(query + ": " + result);
+		//out.print(query + ": " + result);
 	%>
+	<em style="margin:10px]"><% out.print(query); %></em> is defined as...
 	<br />
-	<p align="center">
-		<a href="homepage.jsp" id="Home">Back</a>
-	</p>
+	<p style="margin: 20px"><% out.print(result); %></p>
+	<p><a href="homepage.jsp" id="Home">Back</a></p>
 </body>
 </html>

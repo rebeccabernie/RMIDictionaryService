@@ -1,9 +1,6 @@
 package ie.gmit.sw;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.*;
 import java.rmi.server.*;
@@ -16,7 +13,7 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	private static final long serialVersionUID = 1L;
 	
 	private ArrayList<String> entryList = new ArrayList<String>(); // List of 100 words with definitions
-	private String result = "Word not found! Try another."; // Default to word not found
+	//private String result = "Word not found! Try another."; // Default to word not found
 	
 	public DictionaryServiceImpl() throws RemoteException{
 		super();
@@ -43,9 +40,10 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	
 	@Override
 	public String lookUp(String word) throws RemoteException {
+		String result = "Word not found! Try another.";
 		for(String line: entryList) {
-			if (line.startsWith(word))
-				return line;
+			if (line.startsWith(word + ":"))
+				result = line.replaceFirst(word + ": ", "");
 		}
 		return result; // returns either word + definition or word not found
 	} // end getDefinition

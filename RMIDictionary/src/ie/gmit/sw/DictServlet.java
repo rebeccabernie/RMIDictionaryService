@@ -35,8 +35,8 @@ public class DictServlet extends HttpServlet {
 		
 		request.setAttribute("query", query);
 		request.setAttribute("result", result);
-		javax.servlet.RequestDispatcher dp = request.getRequestDispatcher("/definition.jsp");
-		dp.forward(request, response);
+		javax.servlet.RequestDispatcher rd = request.getRequestDispatcher("/definition.jsp");
+		rd.forward(request, response);
 
 	}
 
