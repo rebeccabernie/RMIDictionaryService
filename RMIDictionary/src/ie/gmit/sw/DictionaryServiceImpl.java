@@ -24,7 +24,9 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	
 	public ArrayList<String> loadDictionary() throws RemoteException {
 		Scanner s;
+		if(entryList.isEmpty() == true) { // Only run if the list is empty
 		try {
+			// Load lines adapted from https://stackoverflow.com/a/5343727/7232648
 			s = new Scanner(new File("dictionary.txt"));
 			while (s.hasNextLine())
 			    entryList.add(s.nextLine());
@@ -34,7 +36,7 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 		} catch (IOException e) {
 			e.printStackTrace();
 			entryList.add("File not found");
-		}
+		}}
 		
 		return entryList;
 	}

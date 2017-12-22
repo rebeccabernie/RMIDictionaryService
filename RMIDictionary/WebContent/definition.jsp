@@ -4,14 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RMI Dictionary</title>
+<title>Result</title>
 </head>
-<body>
-	<h2>Give me the definition for...</h2> 
-	<form action = "DictServlet" method = "POST">
-	   <input type = "text" name = "given_word">
-	   <br />
-	   <input type = "submit" value = "Submit" />
-	</form>
+<body> 
+	<h3 align = "center">Result</h3>
+	<%
+		String query = (String) request.getAttribute("query");
+		String result = (String) request.getAttribute("result");
+		out.print(query + ": " + result);
+	%>
+	<br />
+	<p align="center">
+		<a href="homepage.jsp" id="Home">Back</a>
+	</p>
 </body>
 </html>

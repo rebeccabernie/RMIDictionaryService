@@ -14,9 +14,8 @@ public class DictionaryClient {
 		ArrayList<String> entryList = ds.loadDictionary();
 
 		//print the list of file names on the server to the console
-		System.out.print("Number of entries: ");
-		System.out.println(entryList.size());
-		//System.out.println("Dictionary contents: " + entryList);
+		System.out.println("Number of entries: " + entryList.size()); // Error handling, given file has 100 definitions in it
+		//System.out.println("Dictionary contents: " + entryList); // Un-comment out to print out full contents of dictionary
 
 		// Make a remote invocation to the service to get the given word
 		String definition = ds.lookUp("abate"); // Testing with first word in file
