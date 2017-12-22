@@ -1,8 +1,14 @@
 package ie.gmit.sw;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 // Adapted from Distributed Systems RMI File Server Lab, needs to be changed
 
@@ -17,7 +23,19 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	}
 	
 	public ArrayList<String> loadDictionary() throws RemoteException {
-		entryList.add("abate: means this");
+		Scanner s;
+		try {
+			s = new Scanner(new File("dictionary.txt"));
+			while (s.hasNextLine())
+			    entryList.add(s.nextLine());
+			
+			s.close();
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+			entryList.add("File not found");
+		}
+		
 		return entryList;
 	}
 	

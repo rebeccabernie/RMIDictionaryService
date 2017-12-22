@@ -14,11 +14,13 @@ public class DictionaryClient {
 		ArrayList<String> entryList = ds.loadDictionary();
 
 		//print the list of file names on the server to the console
-		System.out.print("Dictionary Contents: ");
-		System.out.println(entryList);
+		System.out.print("Number of entries: ");
+		System.out.println(entryList.size());
+		//System.out.println("Dictionary contents: " + entryList);
 
 		// Make a remote invocation to the service to get the given word
 		String definition = ds.lookUp("abate"); // Testing with first word in file
+		System.out.println("Fetching definition...");
 		Thread.sleep(2000);
 		System.out.println(definition);
 
