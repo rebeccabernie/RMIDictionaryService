@@ -8,11 +8,24 @@
 </head>
 <body>
 	<h2>Give me the definition for...</h2> 
-	<form action = "DictServlet" method = "POST">
-	   <input style="margin: 10px" type = "text" name = "given_word">
-	   <br />
-	   <br />
-	   <input style="margin: 10px" type = "submit" value = "Submit" />
+	<form action="DictServlet" method="POST">
+	   <input style="margin: 10px" type="text" name="query">
+	   <br>
+	   <br>
+	   <input style="margin: 10px" type="submit" value="Submit"/>
 	</form>
+
+	<br>
+	<br>
+	<form action="DictServlet" method="GET">
+		<%
+			String message = (String) request.getParameter("message"); // Get message variable
+			if (message != null) // If the message contains something (definition / error), output that
+				out.print(request.getParameter("message"));
+			else
+				out.print("Please enter a word."); // Otherwise display prompt
+		%>
+	</form>
+	
 </body>
 </html>

@@ -32,7 +32,7 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 		
 		} catch (IOException e) {
 			e.printStackTrace();
-			entryList.add("File not found");
+			// entryList.add("File not found");
 		}}
 		
 		return entryList;
@@ -43,9 +43,9 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 		String result = "Word not found! Try another.";
 		for(String line: entryList) {
 			if (line.startsWith(word + ":"))
-				result = line.replaceFirst(word + ": ", "");
+				result = line; // .replaceFirst(word + ": ", "")
 		}
 		return result; // returns either word + definition or word not found
-	} // end getDefinition
+	}
 
 }
