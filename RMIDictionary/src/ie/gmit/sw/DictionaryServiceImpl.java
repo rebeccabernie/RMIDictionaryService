@@ -17,15 +17,14 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	}
 	
 	public ArrayList<String> loadDictionary() throws RemoteException {
-		
-
+		entryList.add("abate: means this");
 		return entryList;
 	}
 	
 	@Override
 	public String lookUp(String word) throws RemoteException {
 		for(String line: entryList) {
-			if (line.startsWith("abate"))
+			if (line.startsWith(word))
 				return line;
 		}
 		return result; // returns either word + definition or word not found

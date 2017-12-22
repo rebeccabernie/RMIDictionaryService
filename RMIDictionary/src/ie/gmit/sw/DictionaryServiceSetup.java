@@ -15,7 +15,7 @@ public class DictionaryServiceSetup {
 		DictionaryService ds = new DictionaryServiceImpl();
 
 		// Start the RMI registry on port 1099
-		//LocateRegistry.createRegistry(1099);
+		LocateRegistry.createRegistry(1099);
 
 		// Bind remote object to the registry with the name "dictionaryService"
 		Naming.rebind("dictionaryService", ds); // Cast to Remote type
