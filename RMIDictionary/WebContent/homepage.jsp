@@ -7,25 +7,34 @@
 <title>RMI Dictionary</title>
 </head>
 <body>
-	<h2>Give me the definition for...</h2> 
-	<form action="DictServlet" method="POST">
-	   <input style="margin: 10px" type="text" name="query">
+	<h2 style="margin-left: 50px; margin-top: 50px"><em>Give me the definition for...</em></h2>
+	<form action="DictionaryServlet" method="POST">
+	   <input style="margin-left: 50px; margin-top: 20px" type="text" name="query">
 	   <br>
 	   <br>
-	   <input style="margin: 10px" type="submit" value="Submit"/>
+	   <input style="margin-left: 50px; margin-top: 10px" type="submit" value="Go!"/>
 	</form>
 
 	<br>
 	<br>
-	<form action="DictServlet" method="GET">
+	<form style="margin-left: 50px; margin-top: 20px" action="DictionaryServlet" method="GET">
 		<%
 			String message = (String) request.getParameter("message"); // Get message variable
-			if (message != null) // If the message contains something (definition / error), output that
+			//String waiting = "Waiting for response...";
+					
+			if (message != null) {// If the message contains something (definition / error), output that
 				out.print(request.getParameter("message"));
+			}
 			else
 				out.print("Please enter a word."); // Otherwise display prompt
 		%>
 	</form>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<em style="font-size: 10px; margin-top:50px; margin-left:50px">Rebecca Kane, G00320698</em>
 	
 </body>
 </html>

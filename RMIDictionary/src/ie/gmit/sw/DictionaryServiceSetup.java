@@ -1,7 +1,6 @@
 package ie.gmit.sw;
 
 import java.rmi.Naming;
-//import java.rmi.Remote;
 import java.rmi.registry.LocateRegistry;
 
 // Adapted from Distributed Systems RMI File Server Lab
@@ -22,7 +21,7 @@ public class DictionaryServiceSetup {
 		Naming.rebind("dictionaryService", ds); // Cast to Remote type
 
 		// Output message
-		System.out.println("Server ready.");
+		System.out.println("Server connected.");
 
 	}
 

@@ -3,8 +3,14 @@
 
 > Module: Distributed Systems / 4th Year  
 > Lecturer: Patrick Mannion  
+> [Project Specification](https://github.com/rebeccabernie/RMIDictionaryService/blob/master/Other/ProjectSpecification.pdf)
 
-Sample dictionary based on [100 Most Common SAT Words](http://education.yourdictionary.com/for-students-and-parents/100-most-common-sat-words.html). Copied, pasted and changed to csv format. Project specification states ~50 words is sufficient for this project.
+Sample dictionary based on [100 Most Common SAT Words](http://education.yourdictionary.com/for-students-and-parents/100-most-common-sat-words.html). Copied, pasted and changed to csv format. Project specification states ~50 words is sufficient for this project.  
+
+## Repository Contents  
+The [RMI Dictionary](https://github.com/rebeccabernie/RMIDictionaryService/tree/master/RMIDictionary) folder contains all source code for this project.  
+The [Other](https://github.com/rebeccabernie/RMIDictionaryService/tree/master/Other) folder contains a copy of the project specification, a zipped submission folder, the dictionary file used for the project, and a test *DictClient* Class.  
+If the project is imported into a Dynamic Web Project in Eclipse, the DictClient class can be placed in the ie.gmit.sw package and ran as a test file, after *DictionaryServiceSetup.java* and instead of *homepage.jsp*.  
 
 ## Requirements
 Use the Servlet/JSP and Java RMI frameworks to develop a remote, asynchronous dictionary lookup service.  

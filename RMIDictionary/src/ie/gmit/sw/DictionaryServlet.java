@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 // Servlet implementation class DictServlet
 
-@WebServlet("/DictServlet")
-public class DictServlet extends HttpServlet {
+@WebServlet("/DictionaryServlet")
+public class DictionaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ReqQueue rq;
 	
     // @see HttpServlet#HttpServlet()
-    public DictServlet() {
+    public DictionaryServlet() {
         super();
     }
     
@@ -35,7 +35,6 @@ public class DictServlet extends HttpServlet {
 			rq.queueRequest(request.getParameter("query")); // Add the request to the queue
 		}
 		try {
-			
 			Thread.sleep(1000);
 			String status = rq.getResponse(); // Calls poll() on queue - item at head of queue
 			doGet(request, response, status);
